@@ -1,7 +1,7 @@
 # Jack Deng (邓宇航) - Personal Portfolio Website
 
 > Ultra-clean, high-performance personal portfolio website designed with Apple-inspired minimalist aesthetics.
-> Hosted on GitHub Pages: [https://cs50-citizen.github.io](https://cs50-citizen.github.io)
+> Hosted on GitHub Pages: [https://yuhang-deng-cs.github.io](https://yuhang-deng-cs.github.io)
 
 ---
 
