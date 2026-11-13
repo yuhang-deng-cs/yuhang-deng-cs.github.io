@@ -14,6 +14,7 @@
   <link rel="canonical" href="https://yuhang-deng-cs.github.io/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111827'/><text x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' fill='white' text-anchor='middle'>JD</text></svg>">
 
+  <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -153,7 +154,59 @@
     .copy { font: inherit; cursor: pointer; }
     footer { padding: 32px 0 48px; border-top: 1px solid var(--line); font-size: 13px; color: var(--faint); }
 
+    /* ---------- Motion ---------- */
+    #progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; z-index: 20;
+      background: linear-gradient(90deg, var(--accent), #a855f7); transform-origin: 0 50%; transform: scaleX(0); }
+    header.hero { position: relative; }
+    .glow { position: absolute; z-index: -1; top: 10px; left: -60px; width: 420px; height: 260px; border-radius: 50%;
+      background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
+      filter: blur(20px); pointer-events: none; }
+    h1 .grad { background: linear-gradient(90deg, var(--text) 0%, var(--accent) 50%, #a855f7 75%, var(--text) 100%);
+      background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: 6px; vertical-align: 1px; position: relative; }
+    .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ok); }
+    .facts li.status::before { content: none; }
+    .avatar { transition: transform .4s ease; }
+    .avatar:hover { transform: rotate(-4deg) scale(1.04); }
+    .btn { transition: transform .15s ease, border-color .15s ease, opacity .15s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .project { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .project:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+      box-shadow: 0 12px 32px -16px color-mix(in srgb, var(--accent) 45%, transparent); }
+    .tags li { transition: color .2s, border-color .2s; }
+    .project:hover .tags li { border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+    .links a span { display: inline-block; transition: transform .2s ease; }
+    .links a:hover span { transform: translateX(4px); }
+    nav ul a { position: relative; }
+    nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1.5px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    nav ul a:hover::after, nav ul a.active::after { transform: scaleX(1); }
+    nav ul a.active { color: var(--text); }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .js .intro > :not(.glow) { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+      .js .intro > *:nth-child(2) { animation-delay: .08s; }
+      .js .intro > *:nth-child(3) { animation-delay: .16s; }
+      .js .intro > *:nth-child(4) { animation-delay: .24s; }
+      .js .intro > *:nth-child(5) { animation-delay: .32s; }
+      .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+      .js .reveal.in { opacity: 1; transform: none; }
+      h1 .grad { animation: shimmer 8s ease-in-out infinite; }
+      .glow { animation: drift 12s ease-in-out infinite alternate; }
+      .dot::after { animation: ping 2s cubic-bezier(0,0,.2,1) infinite; }
+      @keyframes rise { to { opacity: 1; transform: none; } }
+      @keyframes shimmer { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
+      @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(260px, 30px) scale(1.15); } }
+      @keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #progress { display: none; }
+      .project:hover, .btn:hover { transform: none; }
+    }
+
     @media print {
+      #progress, .glow { display: none; }
+      .js .reveal { opacity: 1; transform: none; }
       nav, .actions, .links, footer { display: none; }
       section { padding: 16px 0; }
       .project { background: none; }
@@ -163,6 +216,7 @@
 </head>
 <body>
 
+  <div id="progress" aria-hidden="true"></div>
   <nav aria-label="Main">
     <div class="wrap">
       <a class="brand" href="#top">Jack Deng</a>
@@ -171,17 +225,17 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li class="keep"><a href="#contact">Contact</a></li>
-        <li class="keep"><a href="Jack_Deng_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
       </ul>
     </div>
   </nav>
 
   <main id="top">
-    <header class="hero wrap">
+    <header class="hero wrap intro">
+      <div class="glow" aria-hidden="true"></div>
       <div class="hero-top">
         <img class="avatar" src="avatar.jpg" alt="Jack Deng" width="88" height="88">
         <div>
-          <h1>Jack Deng</h1>
+          <h1><span class="grad">Jack Deng</span></h1>
           <p class="role">Software Engineer · Backend &amp; Full-Stack</p>
         </div>
       </div>
@@ -195,12 +249,11 @@
 
       <ul class="facts">
         <li>Brisbane, QLD · open to relocate</li>
-        <li><span class="ok">Full work rights</span> in Australia (485 visa, until Jul 2028)</li>
+        <li class="status"><span class="dot" aria-hidden="true"></span><span class="ok">Full work rights</span> in Australia (485 visa, until Jul 2028)</li>
       </ul>
 
       <div class="actions">
         <a class="btn primary" href="mailto:yuhang.deng.ai@gmail.com">Email me</a>
-        <a class="btn" href="Jack_Deng_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
         <a class="btn" href="https://github.com/yuhang-deng-cs" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/yuhang-deng-cs/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -208,8 +261,8 @@
 
     <section id="experience">
       <div class="wrap">
-        <h2>Experience</h2>
-        <article>
+        <h2 class="reveal">Experience</h2>
+        <article class="reveal">
           <div class="meta">
             <h3>Full-Stack Software Engineer — ByteDance</h3>
             <span class="when">Jul 2022 – Jun 2024</span>
@@ -227,9 +280,9 @@
 
     <section id="projects">
       <div class="wrap">
-        <h2>Selected projects</h2>
+        <h2 class="reveal">Selected projects</h2>
 
-        <article class="project">
+        <article class="project reveal">
           <div class="meta">
             <h3>TicketFlow — event ticketing under load</h3>
             <span class="when">2026</span>
@@ -244,10 +297,10 @@
             <dd>A concurrency test runs 50 threads against 10 tickets: exactly 10 orders, 40 clean <code>409</code>s, <span class="metric">0 oversold</span>. k6 stress script, Prometheus/Grafana dashboards, and CI that runs tests, builds Docker images and validates Terraform.</dd>
           </dl>
           <ul class="tags"><li>Java 21</li><li>Spring Boot 3</li><li>PostgreSQL</li><li>Redis</li><li>React + TS</li><li>AWS ECS Fargate</li><li>Terraform</li><li>GitHub Actions</li></ul>
-          <div class="links"><a href="https://github.com/yuhang-deng-cs/ticketflow" target="_blank" rel="noopener">Code →</a></div>
+          <div class="links"><a href="https://github.com/yuhang-deng-cs/ticketflow" target="_blank" rel="noopener">Code <span>→</span></a></div>
         </article>
 
-        <article class="project">
+        <article class="project reveal">
           <div class="meta">
             <h3>Multi-tenant RAG support assistant</h3>
             <span class="when">2025 – present</span>
@@ -262,10 +315,10 @@
             <dd>Context pruning removes <span class="metric">70–85%</span> of prompt tokens on typical queries. Whole stack starts with Docker Compose; covered by a pytest suite.</dd>
           </dl>
           <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL + pgvector</li><li>Celery</li><li>Redis</li><li>React</li><li>Docker</li></ul>
-          <div class="links"><a href="https://github.com/yuhang-deng-cs/rag-support-agent" target="_blank" rel="noopener">Code →</a></div>
+          <div class="links"><a href="https://github.com/yuhang-deng-cs/rag-support-agent" target="_blank" rel="noopener">Code <span>→</span></a></div>
         </article>
 
-        <article class="project">
+        <article class="project reveal">
           <div class="meta">
             <h3>Evaluating LLM methods for trip planning</h3>
             <span class="when">Mar – Jun 2026</span>
@@ -280,15 +333,15 @@
             <dd>Retrieval grounding lifted factual accuracy from <span class="metric">37% to 100%</span>; adding the validator repair loop raised constraint satisfaction from <span class="metric">93.4% to 99.8%</span>.</dd>
           </dl>
           <ul class="tags"><li>Python</li><li>LLM APIs</li><li>RAG</li><li>Evaluation</li><li>pandas</li></ul>
-          <div class="links"><a href="https://github.com/yuhang-deng-cs/rag-trip-planner" target="_blank" rel="noopener">Code →</a></div>
+          <div class="links"><a href="https://github.com/yuhang-deng-cs/rag-trip-planner" target="_blank" rel="noopener">Code <span>→</span></a></div>
         </article>
       </div>
     </section>
 
     <section id="skills">
       <div class="wrap">
-        <h2>Skills</h2>
-        <dl class="skills">
+        <h2 class="reveal">Skills</h2>
+        <dl class="skills reveal">
           <dt>Languages</dt><dd>Python, TypeScript / JavaScript, Java, Go, SQL</dd>
           <dt>Backend</dt><dd>FastAPI, Spring Boot, Node.js / Express, REST API design, Celery, async workers</dd>
           <dt>Frontend</dt><dd>React, Next.js, Vue, Tailwind CSS</dd>
@@ -301,7 +354,7 @@
 
     <section id="education">
       <div class="wrap">
-        <h2>Education</h2>
+        <h2 class="reveal">Education</h2>
         <div class="meta">
           <h3>Master of Computer Science (Management) — The University of Queensland</h3>
           <span class="when">Jul 2024 – Jul 2026</span>
@@ -312,7 +365,7 @@
 
     <section id="contact" class="contact">
       <div class="wrap">
-        <h2>Contact</h2>
+        <h2 class="reveal">Contact</h2>
         <p>I'm looking for backend or full-stack engineering roles in Australia. The fastest way to reach me is email.</p>
         <div class="actions">
           <a class="btn primary" href="mailto:yuhang.deng.ai@gmail.com">yuhang.deng.ai@gmail.com</a>
@@ -328,8 +381,40 @@
   </footer>
 
   <script>
-    document.getElementById('copy-email').addEventListener('click', function () {
-      var btn = this;
+    // Scroll reveal (content stays visible if IntersectionObserver is missing)
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    // Reading progress bar + active nav link
+    var bar = document.getElementById('progress');
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav ul a[href^="#"]'));
+    var ticking = false;
+    function onScroll() {
+      var max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
+      var current = null;
+      navLinks.forEach(function (a) {
+        var sec = document.querySelector(a.getAttribute('href'));
+        if (sec && sec.getBoundingClientRect().top < innerHeight * 0.35) current = a;
+      });
+      navLinks.forEach(function (a) { a.classList.toggle('active', a === current); });
+      ticking = false;
+    }
+    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    onScroll();
+
+    var copyBtn = document.getElementById('copy-email');
+    copyBtn.addEventListener('click', function () {
+      var btn = copyBtn;
       var done = function (label) { btn.textContent = label; setTimeout(function () { btn.textContent = 'Copy email'; }, 2000); };
       if (navigator.clipboard) {
         navigator.clipboard.writeText('yuhang.deng.ai@gmail.com').then(function () { done('Copied ✓'); }, function () { done('yuhang.deng.ai@gmail.com'); });
