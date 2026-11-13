@@ -1,28 +1,18 @@
-# Jack Deng (邓宇航) - Personal Portfolio Website
+# yuhang-deng-cs.github.io
 
-> Ultra-clean, high-performance personal portfolio website designed with Apple-inspired minimalist aesthetics.
-> Hosted on GitHub Pages: [https://yuhang-deng-cs.github.io](https://yuhang-deng-cs.github.io)
+Personal site of Jack Deng, Software Engineer (Brisbane).
+Live at https://yuhang-deng-cs.github.io
 
----
+A single hand-written `index.html` with no build step and no framework.
 
-## 🚀 One-Command Deployment to GitHub Pages
-
-Since the local Git repository is already initialized and committed:
+## Preview locally
 
 ```bash
-cd c:\Users\yuqia\ai\personal-website
-git push -u origin main
-```
-
----
-
-## 🛠 Local Development
-
-To preview locally on your computer:
-
-```bash
-# Using Python
 python -m http.server 8080
 ```
 
-Open [http://localhost:8080](http://localhost:8080) in your browser.
+Then open http://localhost:8080.
+
+## Deploy
+
+Push to `main`. GitHub Pages serves the repo root.
