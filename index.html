@@ -46,8 +46,8 @@
       --accent-soft: #eaf1ff;
       --ok: #16a34a;
       --ok-soft: #e8f7ee;
-      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", monospace;
       color-scheme: light;
     }
 
@@ -72,6 +72,10 @@
     .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
     .nav-links a:not(.btn):hover::after, .nav-links a.active::after { transform: scaleX(1); }
     @media (max-width: 720px) { .nav-links a:not(.btn) { display: none; } }
+
+    .lang-toggle { font: 600 13px var(--mono); padding: 6px 11px; border-radius: 8px; border: 1px solid var(--line); background: var(--tile); color: var(--text); cursor: pointer; transition: border-color .2s, color .2s; }
+    .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    html[lang="zh-CN"] h1, html[lang="zh-CN"] h2, html[lang="zh-CN"] h3 { letter-spacing: 0; }
 
     /* ---------- Buttons ---------- */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; font: 600 15px var(--sans); border: 1px solid var(--line); background: var(--tile); color: var(--text); cursor: pointer; transition: transform .15s, box-shadow .2s, border-color .2s; }
@@ -214,11 +218,12 @@
     <div class="wrap">
       <a class="brand" href="#top"><b>~/</b>yuhang-deng</a>
       <div class="nav-links">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#focus">Skills</a>
-        <a href="#contact">Contact</a>
-        <a class="btn primary sm" href="mailto:yuhang.deng.ai@gmail.com">Email me</a>
+        <a data-i18n="nav.exp" href="#experience">Experience</a>
+        <a data-i18n="nav.proj" href="#projects">Projects</a>
+        <a data-i18n="nav.skills" href="#focus">Skills</a>
+        <a data-i18n="nav.contact" href="#contact">Contact</a>
+        <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Switch language">中文</button>
+        <a class="btn primary sm" href="mailto:yuhang.deng.ai@gmail.com" data-i18n="nav.email">Email me</a>
       </div>
     </div>
   </nav>
@@ -226,52 +231,52 @@
   <main id="top">
     <header class="wrap hero">
       <div class="intro">
-        <span class="pill"><span class="dot" aria-hidden="true"></span>Open to work · Full work rights in Australia</span>
-        <h1>Software Engineer <span class="hl">backend &amp; full‑stack<span class="cursor" aria-hidden="true"></span></span></h1>
-        <p class="lead">I build <strong>reliable backend services</strong> and the web apps on top of them. A year at <strong>ByteDance</strong>, Master of CS from <strong>UQ</strong>, now based in Brisbane.</p>
+        <span class="pill"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.pill">Open to work · Full work rights in Australia</span></span>
+        <h1 data-i18n="hero.h1">Software Engineer <span class="hl">backend &amp; full‑stack<span class="cursor" aria-hidden="true"></span></span></h1>
+        <p data-i18n="hero.lead" class="lead">I build <strong>reliable backend services</strong> and the web apps on top of them. A year at <strong>ByteDance</strong>, Master of CS from <strong>UQ</strong>, now based in Brisbane.</p>
         <div class="cta">
-          <a class="btn primary" href="#projects">See my projects <span class="arrow">→</span></a>
-          <a class="btn" href="#contact">Get in touch</a>
+          <a data-i18n="hero.cta1" class="btn primary" href="#projects">See my projects <span class="arrow">→</span></a>
+          <a data-i18n="hero.cta2" class="btn" href="#contact">Get in touch</a>
         </div>
         <div class="stats">
-          <div>1 yr<span>at ByteDance</span></div>
-          <div>100M+<span>DAU products</span></div>
-          <div>−45%<span>API latency</span></div>
+          <div data-i18n="stat1">1 yr<span>at ByteDance</span></div>
+          <div data-i18n="stat2">100M+<span>DAU products</span></div>
+          <div data-i18n="stat3">−45%<span>API latency</span></div>
         </div>
       </div>
       <div class="photo">
         <img src="avatar.jpg" alt="Yuhang Deng" width="682" height="1024">
-        <div class="badge"><svg class="i"><use href="#i-pin"/></svg>Brisbane · open to relocate</div>
+        <div class="badge"><svg class="i"><use href="#i-pin"/></svg><span data-i18n="hero.badge">Brisbane · open to relocate</span></div>
       </div>
     </header>
 
     <section id="experience">
       <div class="wrap">
-        <p class="eyebrow reveal">Experience</p>
-        <h2 class="reveal"><span class="hash">##</span> Where I've worked</h2>
-        <p class="sec-sub reveal">Production engineering at scale, then a master's in computer science.</p>
+        <p data-i18n="exp.eyebrow" class="eyebrow reveal">Experience</p>
+        <h2 data-i18n="exp.h2" class="reveal"><span class="hash">##</span> Where I've worked</h2>
+        <p data-i18n="exp.sub" class="sec-sub reveal">Production engineering at scale, then a master's in computer science.</p>
         <div class="xp">
           <article class="card reveal">
             <div class="logo"><img src="logos/bytedance.svg" alt="ByteDance" width="120" height="30"></div>
             <div>
-              <div class="xp-head"><h3>Full-Stack Software Engineer</h3><span class="when">Jul 2023 – Jun 2024</span></div>
-              <p class="role-sub">ByteDance</p>
+              <div class="xp-head"><h3 data-i18n="bd.title">Full-Stack Software Engineer</h3><span data-i18n="bd.when" class="when">Jul 2023 – Jun 2024</span></div>
+              <p data-i18n="bd.org" class="role-sub">ByteDance</p>
               <ul class="chips"><li>Python · Node.js · Go</li><li>React · Next.js</li><li>AWS · Kubernetes</li></ul>
               <ul class="bul">
-                <li>Built backend services and data pipelines for products with <b>100M+ daily users</b>.</li>
-                <li>Cut API latency by <b>45%</b> with query tuning and a multi-tier Redis cache.</li>
-                <li>Rebuilt key pages in React / Next.js, making first load <b>38% faster</b>.</li>
+                <li data-i18n="bd.b1">Built backend services and data pipelines for products with <b>100M+ daily users</b>.</li>
+                <li data-i18n="bd.b2">Cut API latency by <b>45%</b> with query tuning and a multi-tier Redis cache.</li>
+                <li data-i18n="bd.b3">Rebuilt key pages in React / Next.js, making first load <b>38% faster</b>.</li>
               </ul>
             </div>
           </article>
           <article class="card reveal" style="--d:.08s">
             <div class="logo"><img src="logos/uq.svg" alt="The University of Queensland" width="124" height="40"></div>
             <div>
-              <div class="xp-head"><h3>Master of Computer Science</h3><span class="when">Jul 2024 – Jul 2026</span></div>
-              <p class="role-sub">The University of Queensland</p>
-              <ul class="chips"><li>Databases</li><li>Cloud Computing</li><li>Machine Learning</li><li>Software Architecture</li></ul>
+              <div class="xp-head"><h3 data-i18n="uq.title">Master of Computer Science</h3><span data-i18n="uq.when" class="when">Jul 2024 – Jul 2026</span></div>
+              <p data-i18n="uq.org" class="role-sub">The University of Queensland</p>
+              <ul data-i18n="uq.chips" class="chips"><li>Databases</li><li>Cloud Computing</li><li>Machine Learning</li><li>Software Architecture</li></ul>
               <ul class="bul">
-                <li>Capstone: measured how RAG and validation make LLM trip plans <b>accurate and feasible</b>.</li>
+                <li data-i18n="uq.b1">Capstone: measured how RAG and validation make LLM trip plans <b>accurate and feasible</b>.</li>
               </ul>
             </div>
           </article>
@@ -281,36 +286,36 @@
 
     <section id="projects">
       <div class="wrap">
-        <p class="eyebrow reveal">Projects</p>
-        <h2 class="reveal"><span class="hash">##</span> Things I've built</h2>
-        <p class="sec-sub reveal">All open source — click through to the code.</p>
+        <p data-i18n="proj.eyebrow" class="eyebrow reveal">Projects</p>
+        <h2 data-i18n="proj.h2" class="reveal"><span class="hash">##</span> Things I've built</h2>
+        <p data-i18n="proj.sub" class="sec-sub reveal">All open source — click through to the code.</p>
         <div class="grid3">
           <article class="card proj reveal">
-            <span class="kind">Distributed systems</span>
+            <span data-i18n="tf.kind" class="kind">Distributed systems</span>
             <h3>TicketFlow</h3>
-            <p>Ticketing API that stays correct when thousands of buyers hit the same seats.</p>
-            <div class="big">0 oversold</div>
-            <div class="big-label">50 concurrent threads, 10 tickets</div>
+            <p data-i18n="tf.desc">Ticketing API that stays correct when thousands of buyers hit the same seats.</p>
+            <div data-i18n="tf.big" class="big">0 oversold</div>
+            <div data-i18n="tf.label" class="big-label">50 concurrent threads, 10 tickets</div>
             <ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>PostgreSQL</li><li>AWS</li><li>Terraform</li></ul>
-            <a class="code-link" href="https://github.com/yuhang-deng-cs/ticketflow" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>View code <span class="arrow">→</span></a>
+            <a class="code-link" href="https://github.com/yuhang-deng-cs/ticketflow" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span data-i18n="code.view">View code</span> <span class="arrow">→</span></a>
           </article>
           <article class="card proj reveal" style="--d:.08s">
-            <span class="kind">AI · Backend</span>
-            <h3>RAG Support Assistant</h3>
-            <p>Multi-tenant chat over company documents, with background ingestion and streamed answers.</p>
+            <span data-i18n="rag.kind" class="kind">AI · Backend</span>
+            <h3 data-i18n="rag.h3">RAG Support Assistant</h3>
+            <p data-i18n="rag.desc">Multi-tenant chat over company documents, with background ingestion and streamed answers.</p>
             <div class="big">−70–85%</div>
-            <div class="big-label">prompt tokens after context pruning</div>
+            <div data-i18n="rag.label" class="big-label">prompt tokens after context pruning</div>
             <ul class="tags"><li>FastAPI</li><li>pgvector</li><li>Celery</li><li>Redis</li><li>React</li></ul>
-            <a class="code-link" href="https://github.com/yuhang-deng-cs/rag-support-agent" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>View code <span class="arrow">→</span></a>
+            <a class="code-link" href="https://github.com/yuhang-deng-cs/rag-support-agent" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span data-i18n="code.view">View code</span> <span class="arrow">→</span></a>
           </article>
           <article class="card proj reveal" style="--d:.16s">
-            <span class="kind">Research · Capstone</span>
-            <h3>LLM Trip Planner Eval</h3>
-            <p>Benchmarked 4 LLM planning methods over 160 runs with an automated validator.</p>
+            <span data-i18n="trip.kind" class="kind">Research · Capstone</span>
+            <h3 data-i18n="trip.h3">LLM Trip Planner Eval</h3>
+            <p data-i18n="trip.desc">Benchmarked 4 LLM planning methods over 160 runs with an automated validator.</p>
             <div class="big">37% → 100%</div>
-            <div class="big-label">factual accuracy with retrieval</div>
+            <div data-i18n="trip.label" class="big-label">factual accuracy with retrieval</div>
             <ul class="tags"><li>Python</li><li>RAG</li><li>LLM APIs</li><li>Evaluation</li></ul>
-            <a class="code-link" href="https://github.com/yuhang-deng-cs/rag-trip-planner" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>View code <span class="arrow">→</span></a>
+            <a class="code-link" href="https://github.com/yuhang-deng-cs/rag-trip-planner" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span data-i18n="code.view">View code</span> <span class="arrow">→</span></a>
           </article>
         </div>
       </div>
@@ -318,38 +323,38 @@
 
     <section id="focus">
       <div class="wrap">
-        <p class="eyebrow reveal">Skills</p>
-        <h2 class="reveal"><span class="hash">##</span> What I work with</h2>
-        <p class="sec-sub reveal">The stack I reach for day to day.</p>
+        <p data-i18n="sk.eyebrow" class="eyebrow reveal">Skills</p>
+        <h2 data-i18n="sk.h2" class="reveal"><span class="hash">##</span> What I work with</h2>
+        <p data-i18n="sk.sub" class="sec-sub reveal">The stack I reach for day to day.</p>
         <div class="grid3">
-          <div class="card focus reveal"><div class="ico"><svg class="i"><use href="#i-server"/></svg></div><h3>Backend APIs</h3><p>FastAPI, Spring Boot, Node.js — REST, auth, async workers.</p></div>
-          <div class="card focus reveal" style="--d:.06s"><div class="ico"><svg class="i"><use href="#i-layout"/></svg></div><h3>Web Frontend</h3><p>React, Next.js, TypeScript, Tailwind.</p></div>
-          <div class="card focus reveal" style="--d:.12s"><div class="ico"><svg class="i"><use href="#i-db"/></svg></div><h3>Data &amp; Caching</h3><p>PostgreSQL, MySQL, Redis, pgvector.</p></div>
-          <div class="card focus reveal"><div class="ico"><svg class="i"><use href="#i-cloud"/></svg></div><h3>Cloud &amp; IaC</h3><p>AWS (ECS, RDS, S3), Terraform, Docker, Kubernetes.</p></div>
-          <div class="card focus reveal" style="--d:.06s"><div class="ico"><svg class="i"><use href="#i-shield"/></svg></div><h3>Reliability</h3><p>Tests, CI/CD, k6 load tests, Prometheus &amp; Grafana.</p></div>
-          <div class="card focus reveal" style="--d:.12s"><div class="ico"><svg class="i"><use href="#i-spark"/></svg></div><h3>LLM Apps</h3><p>RAG, vector search, evaluating LLM output.</p></div>
+          <div class="card focus reveal"><div class="ico"><svg class="i"><use href="#i-server"/></svg></div><h3 data-i18n="f1.h">Backend APIs</h3><p data-i18n="f1.p">FastAPI, Spring Boot, Node.js — REST, auth, async workers.</p></div>
+          <div class="card focus reveal" style="--d:.06s"><div class="ico"><svg class="i"><use href="#i-layout"/></svg></div><h3 data-i18n="f2.h">Web Frontend</h3><p data-i18n="f2.p">React, Next.js, TypeScript, Tailwind.</p></div>
+          <div class="card focus reveal" style="--d:.12s"><div class="ico"><svg class="i"><use href="#i-db"/></svg></div><h3 data-i18n="f3.h">Data &amp; Caching</h3><p data-i18n="f3.p">PostgreSQL, MySQL, Redis, pgvector.</p></div>
+          <div class="card focus reveal"><div class="ico"><svg class="i"><use href="#i-cloud"/></svg></div><h3 data-i18n="f4.h">Cloud &amp; IaC</h3><p data-i18n="f4.p">AWS (ECS, RDS, S3), Terraform, Docker, Kubernetes.</p></div>
+          <div class="card focus reveal" style="--d:.06s"><div class="ico"><svg class="i"><use href="#i-shield"/></svg></div><h3 data-i18n="f5.h">Reliability</h3><p data-i18n="f5.p">Tests, CI/CD, k6 load tests, Prometheus &amp; Grafana.</p></div>
+          <div class="card focus reveal" style="--d:.12s"><div class="ico"><svg class="i"><use href="#i-spark"/></svg></div><h3 data-i18n="f6.h">LLM Apps</h3><p data-i18n="f6.p">RAG, vector search, evaluating LLM output.</p></div>
         </div>
       </div>
     </section>
 
     <section id="contact">
       <div class="wrap">
-        <p class="eyebrow reveal">Contact</p>
-        <h2 class="reveal">Let's talk.</h2>
-        <p class="sec-sub reveal">Looking for backend or full-stack roles in Australia. Email is the fastest way to reach me.</p>
+        <p data-i18n="ct.eyebrow" class="eyebrow reveal">Contact</p>
+        <h2 data-i18n="ct.h2" class="reveal">Let's talk.</h2>
+        <p data-i18n="ct.sub" class="sec-sub reveal">Looking for backend or full-stack roles in Australia. Email is the fastest way to reach me.</p>
         <div class="reveal">
           <a class="btn primary" href="mailto:yuhang.deng.ai@gmail.com"><svg class="i"><use href="#i-mail"/></svg>yuhang.deng.ai@gmail.com</a>
           <div class="socials">
             <a href="https://github.com/yuhang-deng-cs" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
             <a href="https://www.linkedin.com/in/yuhang-deng-cs/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
-            <button class="btn" type="button" id="copy-email" style="padding:0 16px;height:46px;border-radius:12px" aria-label="Copy email address"><svg class="i"><use href="#i-mail"/></svg><span>Copy email</span></button>
+            <button class="btn" type="button" id="copy-email" style="padding:0 16px;height:46px;border-radius:12px" aria-label="Copy email address"><svg class="i"><use href="#i-mail"/></svg><span data-i18n="ct.copy">Copy email</span></button>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>© 2026 Yuhang Deng (邓宇航) · Hand-written HTML &amp; CSS · <a href="https://github.com/yuhang-deng-cs/yuhang-deng-cs.github.io" target="_blank" rel="noopener">source</a></footer>
+  <footer data-i18n="footer">© 2026 Yuhang Deng (邓宇航) · Hand-written HTML &amp; CSS · <a href="https://github.com/yuhang-deng-cs/yuhang-deng-cs.github.io" target="_blank" rel="noopener">source</a></footer>
 
   <script>
     // Scroll reveal (content stays visible if IntersectionObserver is missing)
@@ -383,13 +388,76 @@
     addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
     onScroll();
 
+    // ---------- Language toggle (English is the HTML default) ----------
+    var ZH = {
+      'title': '邓宇航 Yuhang Deng — 软件工程师',
+      'nav.exp': '经历', 'nav.proj': '项目', 'nav.skills': '技能', 'nav.contact': '联系', 'nav.email': '发邮件',
+      'hero.pill': '正在求职 · 拥有澳洲全职工作权限',
+      'hero.h1': '软件工程师 <span class="hl">后端 &amp; 全栈<span class="cursor" aria-hidden="true"></span></span>',
+      'hero.lead': '我专注于构建<strong>稳定可靠的后端服务</strong>，以及跑在它们之上的 Web 应用。曾在<strong>字节跳动</strong>工作一年，<strong>昆士兰大学</strong>计算机硕士，现居布里斯班。',
+      'hero.cta1': '查看我的项目 <span class="arrow">→</span>', 'hero.cta2': '联系我',
+      'stat1': '1 年<span>字节跳动经历</span>', 'stat2': '100M+<span>日活规模产品</span>', 'stat3': '−45%<span>接口延迟</span>',
+      'hero.badge': '布里斯班 · 可接受搬迁',
+      'exp.eyebrow': '经历', 'exp.h2': '<span class="hash">##</span> 工作与教育', 'exp.sub': '先在大规模生产环境中做工程，之后攻读计算机硕士。',
+      'bd.title': '全栈软件工程师', 'bd.when': '2023.07 – 2024.06', 'bd.org': '字节跳动',
+      'bd.b1': '为<b>上亿日活</b>的产品开发后端服务和数据管道。',
+      'bd.b2': '通过 SQL 调优和多级 Redis 缓存，接口延迟降低 <b>45%</b>。',
+      'bd.b3': '用 React / Next.js 重构核心页面，首屏加载<b>提速 38%</b>。',
+      'uq.title': '计算机科学硕士', 'uq.when': '2024.07 – 2026.07', 'uq.org': '昆士兰大学',
+      'uq.chips': '<li>数据库</li><li>云计算</li><li>机器学习</li><li>软件架构</li>',
+      'uq.b1': '毕业设计：量化评估 RAG 与校验机制如何让大模型生成的行程<b>准确且可行</b>。',
+      'proj.eyebrow': '项目', 'proj.h2': '<span class="hash">##</span> 我做过的项目', 'proj.sub': '全部开源，点击即可查看代码。',
+      'tf.kind': '分布式系统', 'tf.desc': '大量用户同时抢同一批座位时，依然保证数据正确的票务系统 API。',
+      'tf.big': '0 超卖', 'tf.label': '50 个并发线程抢 10 张票',
+      'rag.kind': 'AI · 后端', 'rag.h3': 'RAG 智能客服助手', 'rag.desc': '基于企业文档的多租户问答系统，支持后台异步入库和流式回答。',
+      'rag.label': '上下文裁剪后节省的提示词 token',
+      'trip.kind': '研究 · 毕业设计', 'trip.h3': '大模型行程规划评测', 'trip.desc': '用自动校验器在 160 次运行中对比 4 种大模型规划方法。',
+      'trip.label': '引入检索后的事实准确率',
+      'code.view': '查看代码',
+      'sk.eyebrow': '技能', 'sk.h2': '<span class="hash">##</span> 技术栈', 'sk.sub': '我日常使用的技术。',
+      'f1.h': '后端 API', 'f1.p': 'FastAPI、Spring Boot、Node.js —— REST、鉴权、异步任务。',
+      'f2.h': 'Web 前端', 'f2.p': 'React、Next.js、TypeScript、Tailwind。',
+      'f3.h': '数据与缓存', 'f3.p': 'PostgreSQL、MySQL、Redis、pgvector。',
+      'f4.h': '云与基础设施', 'f4.p': 'AWS（ECS、RDS、S3）、Terraform、Docker、Kubernetes。',
+      'f5.h': '可靠性', 'f5.p': '测试、CI/CD、k6 压测、Prometheus 与 Grafana。',
+      'f6.h': '大模型应用', 'f6.p': 'RAG、向量检索、大模型输出评测。',
+      'ct.eyebrow': '联系', 'ct.h2': '聊聊吧。', 'ct.sub': '正在寻找澳洲的后端或全栈工程师岗位，发邮件是联系我最快的方式。',
+      'ct.copy': '复制邮箱',
+      'footer': '© 2026 Yuhang Deng (邓宇航) · 纯手写 HTML &amp; CSS · <a href="https://github.com/yuhang-deng-cs/yuhang-deng-cs.github.io" target="_blank" rel="noopener">源码</a>'
+    };
+    var COPY = { en: { idle: 'Copy email', done: 'Copied ✓' }, zh: { idle: '复制邮箱', done: '已复制 ✓' } };
+    var i18nEls = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+    i18nEls.forEach(function (el) { el.setAttribute('data-en', el.innerHTML); });
+    var enTitle = document.title;
+    var lang = 'en';
+    var langBtn = document.getElementById('lang-toggle');
+    function setLang(l) {
+      lang = l;
+      i18nEls.forEach(function (el) {
+        var k = el.getAttribute('data-i18n');
+        el.innerHTML = (l === 'zh' && ZH[k] !== undefined) ? ZH[k] : el.getAttribute('data-en');
+      });
+      document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+      document.title = l === 'zh' ? ZH.title : enTitle;
+      langBtn.textContent = l === 'zh' ? 'EN' : '中文';
+      langBtn.setAttribute('aria-label', l === 'zh' ? 'Switch to English' : '切换到中文');
+      try { localStorage.setItem('lang', l); } catch (e) {}
+    }
+    langBtn.addEventListener('click', function () { setLang(lang === 'zh' ? 'en' : 'zh'); });
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang'), saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      var start = q === 'zh' || q === 'en' ? q : saved;
+      if (start === 'zh') setLang('zh');
+    })();
+
     // Copy email
     var copyBtn = document.getElementById('copy-email');
     var copyLabel = copyBtn.querySelector('span');
     copyBtn.addEventListener('click', function () {
-      var done = function (label) { copyLabel.textContent = label; setTimeout(function () { copyLabel.textContent = 'Copy email'; }, 2000); };
+      var done = function (label) { copyLabel.textContent = label; setTimeout(function () { copyLabel.textContent = COPY[lang].idle; }, 2000); };
       if (navigator.clipboard) {
-        navigator.clipboard.writeText('yuhang.deng.ai@gmail.com').then(function () { done('Copied ✓'); }, function () { done('yuhang.deng.ai@gmail.com'); });
+        navigator.clipboard.writeText('yuhang.deng.ai@gmail.com').then(function () { done(COPY[lang].done); }, function () { done('yuhang.deng.ai@gmail.com'); });
       } else {
         done('yuhang.deng.ai@gmail.com');
       }
