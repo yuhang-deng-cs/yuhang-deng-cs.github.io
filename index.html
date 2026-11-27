@@ -13,9 +13,10 @@
   <meta property="og:image" content="https://yuhang-deng-cs.github.io/avatar.jpg">
   <link rel="canonical" href="https://yuhang-deng-cs.github.io/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232563eb'/><text x='16' y='21.5' font-family='monospace' font-size='14' font-weight='700' fill='white' text-anchor='middle'>YD</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/jbmono.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="img/avatar-682.webp" imagesrcset="img/avatar-440.webp 440w, img/avatar-682.webp 682w" imagesizes="(max-width: 860px) 260px, 400px" type="image/webp" fetchpriority="high">
 
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
@@ -33,6 +34,11 @@
   </script>
 
   <style>
+    /* Self-hosted variable fonts (latin subset, SIL Open Font License) */
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/inter.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400 800; font-display: swap; src: url(fonts/jbmono.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
     :root {
       --bg: #ffffff;
       --card: #f6f8fb;
@@ -174,12 +180,12 @@
     /* ---------- Motion ---------- */
     #progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 20; background: linear-gradient(90deg, var(--accent), #8b5cf6); transform-origin: 0 50%; transform: scaleX(0); }
     @media (prefers-reduced-motion: no-preference) {
-      .js .intro > * { opacity: 0; transform: translateY(16px); animation: rise .75s cubic-bezier(.2,.7,.2,1) forwards; }
-      .js .intro > :nth-child(2) { animation-delay: .08s; }
-      .js .intro > :nth-child(3) { animation-delay: .16s; }
-      .js .intro > :nth-child(4) { animation-delay: .24s; }
-      .js .intro > :nth-child(5) { animation-delay: .32s; }
-      .js .photo { opacity: 0; transform: scale(.96); animation: pop .9s .2s cubic-bezier(.2,.7,.2,1) forwards; }
+      .js .intro > * { opacity: 0; transform: translateY(16px); animation: rise .5s cubic-bezier(.2,.7,.2,1) forwards; }
+      .js .intro > :nth-child(2) { animation-delay: .05s; }
+      .js .intro > :nth-child(3) { animation-delay: .1s; }
+      .js .intro > :nth-child(4) { animation-delay: .15s; }
+      .js .intro > :nth-child(5) { animation-delay: .2s; }
+      .js .photo { opacity: 0; transform: scale(.96); animation: pop .6s .05s cubic-bezier(.2,.7,.2,1) forwards; }
       .js .badge { animation: float 4s 1.2s ease-in-out infinite; }
       .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
       .js .reveal.in { opacity: 1; transform: none; }
@@ -245,7 +251,10 @@
         </div>
       </div>
       <div class="photo">
-        <img src="avatar.jpg" alt="Yuhang Deng" width="682" height="1024">
+        <picture>
+          <source type="image/webp" srcset="img/avatar-440.webp 440w, img/avatar-682.webp 682w" sizes="(max-width: 860px) 260px, 400px">
+          <img src="avatar.jpg" alt="Yuhang Deng" width="682" height="1024" fetchpriority="high" decoding="async">
+        </picture>
         <div class="badge"><svg class="i"><use href="#i-pin"/></svg><span data-i18n="hero.badge">Brisbane · open to relocate</span></div>
       </div>
     </header>
