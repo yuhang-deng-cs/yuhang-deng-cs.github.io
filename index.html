@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jack Deng — Software Engineer</title>
-  <meta name="description" content="Jack Deng — Software Engineer in Brisbane. 2 years at ByteDance building backend services and web platforms; Master of Computer Science (UQ). Full work rights in Australia.">
+  <meta name="description" content="Jack Deng — backend & full-stack Software Engineer in Brisbane. 2 years at ByteDance, Master of CS (UQ). Full work rights in Australia.">
   <meta name="author" content="Jack Deng">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Jack Deng — Software Engineer">
@@ -12,7 +12,10 @@
   <meta property="og:url" content="https://yuhang-deng-cs.github.io/">
   <meta property="og:image" content="https://yuhang-deng-cs.github.io/avatar.jpg">
   <link rel="canonical" href="https://yuhang-deng-cs.github.io/">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111827'/><text x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' fill='white' text-anchor='middle'>JD</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232563eb'/><text x='16' y='21.5' font-family='monospace' font-size='14' font-weight='700' fill='white' text-anchor='middle'>JD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
@@ -32,353 +35,341 @@
   <style>
     :root {
       --bg: #ffffff;
-      --surface: #f6f7f9;
-      --text: #111827;
-      --muted: #4b5563;
-      --faint: #6b7280;
-      --line: #e5e7eb;
-      --accent: #1d4ed8;
-      --accent-soft: #eff4ff;
-      --ok: #047857;
-      --radius: 10px;
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --card: #f6f8fb;
+      --tile: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --faint: #94a3b8;
+      --line: #e2e8f0;
+      --accent: #2563eb;
+      --accent-ink: #1d4ed8;
+      --accent-soft: #eaf1ff;
+      --ok: #16a34a;
+      --ok-soft: #e8f7ee;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       color-scheme: light dark;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0f1115;
-        --surface: #171a21;
-        --text: #e8eaee;
-        --muted: #a3a9b5;
-        --faint: #8a909c;
-        --line: #272b34;
-        --accent: #7aa2ff;
-        --accent-soft: #1a2236;
-        --ok: #34d399;
+        --bg: #0b0f17;
+        --card: #121826;
+        --tile: #182033;
+        --text: #e6eaf2;
+        --muted: #a2acbd;
+        --faint: #64708a;
+        --line: #222b3d;
+        --accent: #6f9bff;
+        --accent-ink: #9bbaff;
+        --accent-soft: #17223a;
+        --ok: #4ade80;
+        --ok-soft: #13261c;
+        --on-accent: #0b0f17;
       }
     }
 
     * { box-sizing: border-box; }
     @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 16px/1.65 var(--font);
-      -webkit-font-smoothing: antialiased;
-    }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
     a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: var(--mono); }
+    svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    /* ---------- Nav ---------- */
+    nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { font: 700 16px var(--mono); color: var(--text); }
+    .brand b { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; }
+    .nav-links a:not(.btn) { color: var(--muted); position: relative; }
+    .nav-links a:not(.btn):hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
+    .nav-links a:not(.btn):hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    @media (max-width: 720px) { .nav-links a:not(.btn) { display: none; } }
 
-    /* Nav */
-    nav {
-      position: sticky; top: 0; z-index: 10;
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
+    /* ---------- Buttons ---------- */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; font: 600 15px var(--sans); border: 1px solid var(--line); background: var(--tile); color: var(--text); cursor: pointer; transition: transform .15s, box-shadow .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--faint); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent, #fff); box-shadow: 0 6px 18px -8px var(--accent); }
+    .btn.primary:hover { box-shadow: 0 10px 24px -8px var(--accent); }
+    .btn.sm { padding: 7px 14px; font-size: 13px; border-radius: 8px; }
+    .btn .arrow { transition: transform .2s; }
+    .btn:hover .arrow { transform: translateX(3px); }
+
+    /* ---------- Hero ---------- */
+    .hero { padding-top: 80px; padding-bottom: 72px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ok); background: var(--ok-soft); border: 1px solid color-mix(in srgb, var(--ok) 30%, transparent); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); position: relative; }
+    .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ok); }
+    h1 { font: 800 clamp(40px, 6vw, 64px)/1.05 var(--mono); letter-spacing: -0.03em; margin: 22px 0 22px; }
+    h1 .hl { color: var(--accent); display: block; }
+    .lead { font-size: 19px; color: var(--muted); max-width: 30em; margin: 0 0 30px; }
+    .lead strong { color: var(--text); font-weight: 600; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .stats { display: flex; gap: 36px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .stats div { font: 800 26px var(--mono); letter-spacing: -0.02em; }
+    .stats span { display: block; font: 500 13px var(--sans); color: var(--muted); letter-spacing: 0; margin-top: 2px; }
+    .photo { position: relative; justify-self: end; width: 100%; max-width: 400px; }
+    .photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: 24px; box-shadow: 0 30px 60px -30px rgba(15, 23, 42, .45); }
+    .photo::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border-radius: 24px; border: 2px dashed color-mix(in srgb, var(--accent) 45%, transparent); z-index: -1; }
+    .badge { position: absolute; left: -22px; bottom: 28px; display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: var(--tile); border: 1px solid var(--line); box-shadow: 0 12px 30px -12px rgba(15, 23, 42, .35); font-size: 13px; font-weight: 600; }
+    .badge svg { color: var(--accent); }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 48px; padding-bottom: 56px; gap: 40px; }
+      .photo { order: -1; justify-self: start; max-width: 260px; }
+      .badge { left: auto; right: -14px; }
+      .stats { gap: 24px; }
     }
-    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 52px; gap: 16px; }
-    nav .brand { font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
-    nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
-    nav ul a { color: var(--muted); }
-    nav ul a:hover { color: var(--text); text-decoration: none; }
-    @media (max-width: 560px) { nav ul li:not(.keep) { display: none; } }
+    @media (max-width: 420px) { .stats { flex-wrap: wrap; } .wrap { padding: 0 18px; } }
 
-    /* Hero */
-    header.hero { padding-top: 64px; padding-bottom: 40px; }
-    code { font-family: var(--mono); font-size: 0.88em; overflow-wrap: anywhere; }
-    .hero-top { display: flex; gap: 24px; align-items: center; }
-    .avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; object-position: top; border: 1px solid var(--line); flex-shrink: 0; }
-    h1 { font-size: 36px; line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
-    .role { font-size: 18px; color: var(--muted); margin: 4px 0 0; }
-    .summary { font-size: 18px; margin: 28px 0 20px; }
-    .facts { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; margin: 0 0 28px; list-style: none; font-size: 14px; color: var(--muted); }
-    .facts li::before { content: "▸ "; color: var(--faint); }
-    .facts .ok { color: var(--ok); font-weight: 600; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
-      border: 1px solid var(--line); color: var(--text); background: var(--bg);
-    }
-    .btn:hover { text-decoration: none; border-color: var(--faint); }
-    .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
-    .btn.primary:hover { opacity: 0.88; }
-    @media (max-width: 560px) {
-      header.hero { padding-top: 40px; }
-      .hero-top { flex-direction: column; align-items: flex-start; gap: 16px; }
-      h1 { font-size: 30px; }
-      .summary { font-size: 17px; }
-    }
+    /* ---------- Sections ---------- */
+    section { padding: 72px 0; }
+    .eyebrow { font: 700 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+    h2 { font: 800 clamp(28px, 4vw, 38px)/1.15 var(--mono); letter-spacing: -0.02em; margin: 0; }
+    h2 .hash { color: var(--faint); }
+    .sec-sub { color: var(--muted); margin: 10px 0 36px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; transition: transform .25s, border-color .25s, box-shadow .25s; }
+    .card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--accent) 60%, transparent); }
+    h3 { font: 700 18px/1.35 var(--mono); margin: 0; letter-spacing: -0.01em; }
 
-    /* Sections */
-    section { padding: 40px 0; border-top: 1px solid var(--line); }
-    h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); margin: 0 0 24px; font-weight: 600; }
-    h3 { font-size: 19px; margin: 0; letter-spacing: -0.01em; }
-    .meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; }
-    .when { font-family: var(--mono); font-size: 13px; color: var(--faint); white-space: nowrap; }
-    .sub { color: var(--muted); margin: 2px 0 12px; font-size: 15px; }
-    ul.points { margin: 0; padding-left: 20px; }
-    ul.points li { margin: 6px 0; }
-    ul.points li::marker { color: var(--faint); }
+    /* Experience */
+    .xp { display: grid; gap: 18px; }
+    .xp .card { display: grid; grid-template-columns: 96px 1fr; gap: 26px; padding: 26px 28px; }
+    .logo { width: 96px; height: 96px; border-radius: 16px; background: var(--tile); border: 1px solid var(--line); display: grid; place-items: center; text-align: center; font: 800 15px/1.1 var(--mono); }
+    .logo small { display: block; font: 500 10px var(--sans); color: var(--muted); margin-top: 4px; letter-spacing: .04em; }
+    .logo.bd { color: #3c8cff; font-size: 13px; }
+    .logo.uq { color: #51247a; }
+    @media (prefers-color-scheme: dark) { .logo.uq { color: #b48ae0; } }
+    .xp-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; }
+    .when { font: 500 13px var(--mono); color: var(--faint); }
+    .role-sub { font-size: 14px; color: var(--muted); margin: 2px 0 12px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; padding: 0; list-style: none; }
+    .chips li { font: 600 12px var(--sans); padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); }
+    .bul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 15px; }
+    .bul li { position: relative; padding-left: 20px; margin: 7px 0; }
+    .bul li::before { content: "–"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+    .bul b { color: var(--text); font-weight: 600; }
+    @media (max-width: 600px) { .xp .card { grid-template-columns: 1fr; gap: 16px; padding: 22px; } .logo { width: 84px; height: 72px; } .logo.bd { font-size: 12px; } }
 
     /* Projects */
-    .project { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); margin-bottom: 20px; }
-    .project:last-child { margin-bottom: 0; }
-    .project .sub { margin-bottom: 14px; }
-    .project dl { margin: 0; display: grid; grid-template-columns: 96px 1fr; gap: 8px 16px; font-size: 15px; }
-    .project dt { color: var(--faint); font-weight: 600; font-size: 13px; padding-top: 2px; }
-    .project dd { margin: 0; }
-    @media (max-width: 560px) {
-      .project { padding: 18px; }
-      .project dl { grid-template-columns: 1fr; gap: 2px; }
-      .project dd { margin-bottom: 10px; }
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; padding: 0; list-style: none; }
-    .tags li { font-family: var(--mono); font-size: 12px; padding: 2px 8px; border-radius: 5px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); }
-    .links { margin-top: 14px; font-size: 14px; font-weight: 600; display: flex; gap: 18px; flex-wrap: wrap; }
-    .metric { font-weight: 600; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    @media (max-width: 900px) { .grid3 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .grid3 { grid-template-columns: 1fr; } }
+    .proj { padding: 26px; display: flex; flex-direction: column; }
+    .proj .kind { font: 600 12px var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+    .proj h3 { margin: 6px 0 10px; }
+    .proj p { color: var(--muted); font-size: 15px; margin: 0 0 18px; }
+    .big { font: 800 30px/1 var(--mono); color: var(--accent); letter-spacing: -0.02em; }
+    .big-label { font-size: 13px; color: var(--muted); margin: 6px 0 18px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 18px; padding: 0; list-style: none; }
+    .tags li { font: 500 12px var(--mono); padding: 3px 8px; border-radius: 6px; background: var(--tile); border: 1px solid var(--line); color: var(--muted); }
+    .code-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; }
+    .code-link .arrow { transition: transform .2s; }
+    .code-link:hover .arrow { transform: translateX(4px); }
 
-    /* Skills */
-    .skills { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; font-size: 15px; }
-    .skills dt { font-weight: 600; }
-    .skills dd { margin: 0; color: var(--muted); }
-    @media (max-width: 560px) { .skills { grid-template-columns: 1fr; gap: 2px; } .skills dd { margin-bottom: 10px; } }
+    /* Focus areas */
+    .focus { padding: 24px; }
+    .ico { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 16px; transition: transform .3s; }
+    .focus:hover .ico { transform: rotate(-8deg) scale(1.08); }
+    .focus h3 { font-size: 16px; margin-bottom: 6px; }
+    .focus p { margin: 0; font-size: 14px; color: var(--muted); }
 
     /* Contact */
-    .contact p { margin: 0 0 20px; font-size: 17px; }
-    .copy { font: inherit; cursor: pointer; }
-    footer { padding: 32px 0 48px; border-top: 1px solid var(--line); font-size: 13px; color: var(--faint); }
+    #contact { text-align: center; padding: 96px 0 72px; }
+    #contact h2 { font-size: clamp(32px, 5vw, 48px); }
+    #contact .sec-sub { max-width: 32em; margin: 14px auto 30px; }
+    .socials { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }
+    .socials a { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--tile); color: var(--text); transition: transform .15s, color .2s, border-color .2s; }
+    .socials a:hover { transform: translateY(-3px); color: var(--accent); border-color: var(--accent); }
+    footer { text-align: center; padding: 0 0 40px; font-size: 13px; color: var(--faint); }
+    footer a { color: inherit; text-decoration: underline; }
 
     /* ---------- Motion ---------- */
-    #progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; z-index: 20;
-      background: linear-gradient(90deg, var(--accent), #a855f7); transform-origin: 0 50%; transform: scaleX(0); }
-    header.hero { position: relative; }
-    .glow { position: absolute; z-index: -1; top: 10px; left: -60px; width: 420px; height: 260px; border-radius: 50%;
-      background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
-      filter: blur(20px); pointer-events: none; }
-    h1 .grad { background: linear-gradient(90deg, var(--text) 0%, var(--accent) 50%, #a855f7 75%, var(--text) 100%);
-      background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: 6px; vertical-align: 1px; position: relative; }
-    .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ok); }
-    .facts li.status::before { content: none; }
-    .avatar { transition: transform .4s ease; }
-    .avatar:hover { transform: rotate(-4deg) scale(1.04); }
-    .btn { transition: transform .15s ease, border-color .15s ease, opacity .15s ease; }
-    .btn:hover { transform: translateY(-2px); }
-    .project { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-    .project:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-      box-shadow: 0 12px 32px -16px color-mix(in srgb, var(--accent) 45%, transparent); }
-    .tags li { transition: color .2s, border-color .2s; }
-    .project:hover .tags li { border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
-    .links a span { display: inline-block; transition: transform .2s ease; }
-    .links a:hover span { transform: translateX(4px); }
-    nav ul a { position: relative; }
-    nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1.5px; background: var(--accent);
-      transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
-    nav ul a:hover::after, nav ul a.active::after { transform: scaleX(1); }
-    nav ul a.active { color: var(--text); }
-
+    #progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 20; background: linear-gradient(90deg, var(--accent), #8b5cf6); transform-origin: 0 50%; transform: scaleX(0); }
     @media (prefers-reduced-motion: no-preference) {
-      .js .intro > :not(.glow) { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
-      .js .intro > *:nth-child(2) { animation-delay: .08s; }
-      .js .intro > *:nth-child(3) { animation-delay: .16s; }
-      .js .intro > *:nth-child(4) { animation-delay: .24s; }
-      .js .intro > *:nth-child(5) { animation-delay: .32s; }
-      .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+      .js .intro > * { opacity: 0; transform: translateY(16px); animation: rise .75s cubic-bezier(.2,.7,.2,1) forwards; }
+      .js .intro > :nth-child(2) { animation-delay: .08s; }
+      .js .intro > :nth-child(3) { animation-delay: .16s; }
+      .js .intro > :nth-child(4) { animation-delay: .24s; }
+      .js .intro > :nth-child(5) { animation-delay: .32s; }
+      .js .photo { opacity: 0; transform: scale(.96); animation: pop .9s .2s cubic-bezier(.2,.7,.2,1) forwards; }
+      .js .badge { animation: float 4s 1.2s ease-in-out infinite; }
+      .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
       .js .reveal.in { opacity: 1; transform: none; }
-      h1 .grad { animation: shimmer 8s ease-in-out infinite; }
-      .glow { animation: drift 12s ease-in-out infinite alternate; }
       .dot::after { animation: ping 2s cubic-bezier(0,0,.2,1) infinite; }
+      .cursor { display: inline-block; width: .55em; height: .9em; background: var(--accent); vertical-align: -0.08em; margin-left: 4px; animation: blink 1.1s steps(1) infinite; }
       @keyframes rise { to { opacity: 1; transform: none; } }
-      @keyframes shimmer { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
-      @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(260px, 30px) scale(1.15); } }
+      @keyframes pop { to { opacity: 1; transform: none; } }
+      @keyframes float { 50% { transform: translateY(-8px); } }
       @keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
+      @keyframes blink { 50% { opacity: 0; } }
     }
     @media (prefers-reduced-motion: reduce) {
-      #progress { display: none; }
-      .project:hover, .btn:hover { transform: none; }
-    }
-
-    @media print {
-      #progress, .glow { display: none; }
-      .js .reveal { opacity: 1; transform: none; }
-      nav, .actions, .links, footer { display: none; }
-      section { padding: 16px 0; }
-      .project { background: none; }
-      a { color: inherit; }
+      #progress, .cursor { display: none; }
+      .card:hover, .btn:hover, .socials a:hover { transform: none; }
     }
   </style>
 </head>
 <body>
+  <!-- Icon sprites -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.6-9 6 6 0 0 1 11.4 1.5A3.75 3.75 0 0 1 17.5 18Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6Z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></symbol>
+  </svg>
 
   <div id="progress" aria-hidden="true"></div>
+
   <nav aria-label="Main">
     <div class="wrap">
-      <a class="brand" href="#top">Jack Deng</a>
-      <ul>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li class="keep"><a href="#contact">Contact</a></li>
-      </ul>
+      <a class="brand" href="#top"><b>~/</b>jack-deng</a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#focus">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary sm" href="mailto:yuhang.deng.ai@gmail.com">Email me</a>
+      </div>
     </div>
   </nav>
 
   <main id="top">
-    <header class="hero wrap intro">
-      <div class="glow" aria-hidden="true"></div>
-      <div class="hero-top">
-        <img class="avatar" src="avatar.jpg" alt="Jack Deng" width="88" height="88">
-        <div>
-          <h1><span class="grad">Jack Deng</span></h1>
-          <p class="role">Software Engineer · Backend &amp; Full-Stack</p>
+    <header class="wrap hero">
+      <div class="intro">
+        <span class="pill"><span class="dot" aria-hidden="true"></span>Open to work · Full work rights in Australia</span>
+        <h1>Software Engineer <span class="hl">backend &amp; full‑stack<span class="cursor" aria-hidden="true"></span></span></h1>
+        <p class="lead">I build <strong>reliable backend services</strong> and the web apps on top of them. Two years at <strong>ByteDance</strong>, Master of CS from <strong>UQ</strong>, now based in Brisbane.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See my projects <span class="arrow">→</span></a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+        <div class="stats">
+          <div>2 yrs<span>at ByteDance</span></div>
+          <div>100M+<span>DAU products</span></div>
+          <div>−45%<span>API latency</span></div>
         </div>
       </div>
-
-      <p class="summary">
-        I build backend services and the web apps on top of them. I spent two years at
-        <strong>ByteDance</strong> working on services and internal platforms for products with
-        100M+ daily users, then completed a Master of Computer Science at
-        <strong>The University of Queensland</strong>, where I focused on cloud systems and LLM applications.
-      </p>
-
-      <ul class="facts">
-        <li>Brisbane, QLD · open to relocate</li>
-        <li class="status"><span class="dot" aria-hidden="true"></span><span class="ok">Full work rights</span> in Australia (485 visa, until Jul 2028)</li>
-      </ul>
-
-      <div class="actions">
-        <a class="btn primary" href="mailto:yuhang.deng.ai@gmail.com">Email me</a>
-        <a class="btn" href="https://github.com/yuhang-deng-cs" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/yuhang-deng-cs/" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="photo">
+        <img src="avatar.jpg" alt="Jack Deng" width="682" height="1024">
+        <div class="badge"><svg class="i"><use href="#i-pin"/></svg>Brisbane · open to relocate</div>
       </div>
     </header>
 
     <section id="experience">
       <div class="wrap">
-        <h2 class="reveal">Experience</h2>
-        <article class="reveal">
-          <div class="meta">
-            <h3>Full-Stack Software Engineer — ByteDance</h3>
-            <span class="when">Jul 2022 – Jun 2024</span>
-          </div>
-          <p class="sub">Beijing, China</p>
-          <ul class="points">
-            <li>Built and maintained backend microservices and data pipelines in Python, Node.js and Go for products with <span class="metric">100M+ DAU</span>, on services held to a 99.99% availability target.</li>
-            <li>Cut average API latency by <span class="metric">45%</span> by reworking slow PostgreSQL/MySQL queries and adding a multi-tier Redis cache in front of hot read paths.</li>
-            <li>Rebuilt user-facing and internal operations pages in React, TypeScript and Next.js (SSR), reducing initial page load time by <span class="metric">38%</span>.</li>
-            <li>Shipped through automated CI/CD to AWS and Kubernetes with Docker, and kept unit and integration test coverage above 85% on the services I owned.</li>
-          </ul>
-        </article>
+        <p class="eyebrow reveal">Experience</p>
+        <h2 class="reveal"><span class="hash">##</span> Where I've worked</h2>
+        <p class="sec-sub reveal">Production engineering at scale, then a master's in computer science.</p>
+        <div class="xp">
+          <article class="card reveal">
+            <div class="logo bd">ByteDance<small>Beijing</small></div>
+            <div>
+              <div class="xp-head"><h3>Full-Stack Software Engineer</h3><span class="when">2022 – 2024</span></div>
+              <p class="role-sub">ByteDance · Beijing, China</p>
+              <ul class="chips"><li>Python · Node.js · Go</li><li>React · Next.js</li><li>AWS · Kubernetes</li></ul>
+              <ul class="bul">
+                <li>Built backend services and data pipelines for products with <b>100M+ daily users</b>.</li>
+                <li>Cut API latency by <b>45%</b> with query tuning and a multi-tier Redis cache.</li>
+                <li>Rebuilt key pages in React / Next.js, making first load <b>38% faster</b>.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card reveal" style="--d:.08s">
+            <div class="logo uq">UQ<small>Brisbane</small></div>
+            <div>
+              <div class="xp-head"><h3>Master of Computer Science</h3><span class="when">2024 – 2026</span></div>
+              <p class="role-sub">The University of Queensland · Brisbane, Australia</p>
+              <ul class="chips"><li>Databases</li><li>Cloud Computing</li><li>Machine Learning</li><li>Software Architecture</li></ul>
+              <ul class="bul">
+                <li>Capstone: measured how RAG and validation make LLM trip plans <b>accurate and feasible</b>.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="projects">
       <div class="wrap">
-        <h2 class="reveal">Selected projects</h2>
-
-        <article class="project reveal">
-          <div class="meta">
-            <h3>TicketFlow — event ticketing under load</h3>
-            <span class="when">2026</span>
-          </div>
-          <p class="sub">Java 21 / Spring Boot 3 API, React 19 front end, deployed to AWS with Terraform.</p>
-          <dl>
-            <dt>Problem</dt>
-            <dd>When many buyers hit the same ticket tier at once, a naive read-then-write booking flow oversells seats and double-charges on retries.</dd>
-            <dt>Approach</dt>
-            <dd>Atomic conditional updates (<code>… WHERE available_capacity &gt;= :qty</code>) plus optimistic locking; <code>Idempotency-Key</code> on booking and checkout; 10-minute holds released by a scheduled sweeper; JWT auth with role-based access; trace IDs in every log line.</dd>
-            <dt>Verified</dt>
-            <dd>A concurrency test runs 50 threads against 10 tickets: exactly 10 orders, 40 clean <code>409</code>s, <span class="metric">0 oversold</span>. k6 stress script, Prometheus/Grafana dashboards, and CI that runs tests, builds Docker images and validates Terraform.</dd>
-          </dl>
-          <ul class="tags"><li>Java 21</li><li>Spring Boot 3</li><li>PostgreSQL</li><li>Redis</li><li>React + TS</li><li>AWS ECS Fargate</li><li>Terraform</li><li>GitHub Actions</li></ul>
-          <div class="links"><a href="https://github.com/yuhang-deng-cs/ticketflow" target="_blank" rel="noopener">Code <span>→</span></a></div>
-        </article>
-
-        <article class="project reveal">
-          <div class="meta">
-            <h3>Multi-tenant RAG support assistant</h3>
-            <span class="when">2025 – present</span>
-          </div>
-          <p class="sub">FastAPI service with a React chat workspace that answers staff questions from internal documents.</p>
-          <dl>
-            <dt>Problem</dt>
-            <dd>Company knowledge bases mix public guidelines with confidential department docs, and dumping whole documents into an LLM prompt is slow, expensive and leaks data across teams.</dd>
-            <dt>Approach</dt>
-            <dd>Per-tenant isolation in PostgreSQL + pgvector; uploads return <code>202</code> immediately and a Celery/Redis worker chunks and embeds in the background; an intent router skips retrieval for small talk; retrieved chunks are pruned before prompting; answers stream over SSE with source citations. JWT + RBAC throughout.</dd>
-            <dt>Result</dt>
-            <dd>Context pruning removes <span class="metric">70–85%</span> of prompt tokens on typical queries. Whole stack starts with Docker Compose; covered by a pytest suite.</dd>
-          </dl>
-          <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL + pgvector</li><li>Celery</li><li>Redis</li><li>React</li><li>Docker</li></ul>
-          <div class="links"><a href="https://github.com/yuhang-deng-cs/rag-support-agent" target="_blank" rel="noopener">Code <span>→</span></a></div>
-        </article>
-
-        <article class="project reveal">
-          <div class="meta">
-            <h3>Evaluating LLM methods for trip planning</h3>
-            <span class="when">Mar – Jun 2026</span>
-          </div>
-          <p class="sub">Master's capstone, University of Queensland.</p>
-          <dl>
-            <dt>Question</dt>
-            <dd>LLMs write fluent itineraries but invent places and break budget, opening-hour and distance limits. Which techniques actually fix that?</dd>
-            <dt>Approach</dt>
-            <dd>Built an evaluation harness: a POI knowledge base for South-East Queensland, 40 controlled scenarios, and a rule-based validator. Compared four methods (direct prompting, structured JSON, RAG, and RAG + validator-guided repair) across 160 runs with automated metrics and charts.</dd>
-            <dt>Finding</dt>
-            <dd>Retrieval grounding lifted factual accuracy from <span class="metric">37% to 100%</span>; adding the validator repair loop raised constraint satisfaction from <span class="metric">93.4% to 99.8%</span>.</dd>
-          </dl>
-          <ul class="tags"><li>Python</li><li>LLM APIs</li><li>RAG</li><li>Evaluation</li><li>pandas</li></ul>
-          <div class="links"><a href="https://github.com/yuhang-deng-cs/rag-trip-planner" target="_blank" rel="noopener">Code <span>→</span></a></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="wrap">
-        <h2 class="reveal">Skills</h2>
-        <dl class="skills reveal">
-          <dt>Languages</dt><dd>Python, TypeScript / JavaScript, Java, Go, SQL</dd>
-          <dt>Backend</dt><dd>FastAPI, Spring Boot, Node.js / Express, REST API design, Celery, async workers</dd>
-          <dt>Frontend</dt><dd>React, Next.js, Vue, Tailwind CSS</dd>
-          <dt>Data</dt><dd>PostgreSQL (incl. pgvector), MySQL, Redis, MongoDB</dd>
-          <dt>Cloud &amp; DevOps</dt><dd>AWS (ECS, RDS, S3), Terraform, Docker, Kubernetes, GitHub Actions, Prometheus / Grafana</dd>
-          <dt>LLM apps</dt><dd>RAG pipelines, embeddings &amp; vector search, LLM output validation and evaluation</dd>
-        </dl>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="wrap">
-        <h2 class="reveal">Education</h2>
-        <div class="meta">
-          <h3>Master of Computer Science (Management) — The University of Queensland</h3>
-          <span class="when">Jul 2024 – Jul 2026</span>
+        <p class="eyebrow reveal">Projects</p>
+        <h2 class="reveal"><span class="hash">##</span> Things I've built</h2>
+        <p class="sec-sub reveal">All open source — click through to the code.</p>
+        <div class="grid3">
+          <article class="card proj reveal">
+            <span class="kind">Distributed systems</span>
+            <h3>TicketFlow</h3>
+            <p>Ticketing API that stays correct when thousands of buyers hit the same seats.</p>
+            <div class="big">0 oversold</div>
+            <div class="big-label">50 concurrent threads, 10 tickets</div>
+            <ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>PostgreSQL</li><li>AWS</li><li>Terraform</li></ul>
+            <a class="code-link" href="https://github.com/yuhang-deng-cs/ticketflow" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>View code <span class="arrow">→</span></a>
+          </article>
+          <article class="card proj reveal" style="--d:.08s">
+            <span class="kind">AI · Backend</span>
+            <h3>RAG Support Assistant</h3>
+            <p>Multi-tenant chat over company documents, with background ingestion and streamed answers.</p>
+            <div class="big">−70–85%</div>
+            <div class="big-label">prompt tokens after context pruning</div>
+            <ul class="tags"><li>FastAPI</li><li>pgvector</li><li>Celery</li><li>Redis</li><li>React</li></ul>
+            <a class="code-link" href="https://github.com/yuhang-deng-cs/rag-support-agent" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>View code <span class="arrow">→</span></a>
+          </article>
+          <article class="card proj reveal" style="--d:.16s">
+            <span class="kind">Research · Capstone</span>
+            <h3>LLM Trip Planner Eval</h3>
+            <p>Benchmarked 4 LLM planning methods over 160 runs with an automated validator.</p>
+            <div class="big">37% → 100%</div>
+            <div class="big-label">factual accuracy with retrieval</div>
+            <ul class="tags"><li>Python</li><li>RAG</li><li>LLM APIs</li><li>Evaluation</li></ul>
+            <a class="code-link" href="https://github.com/yuhang-deng-cs/rag-trip-planner" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>View code <span class="arrow">→</span></a>
+          </article>
         </div>
-        <p class="sub">Advanced Database Systems · Cloud Computing · Machine Learning · Software Architecture</p>
       </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="focus">
       <div class="wrap">
-        <h2 class="reveal">Contact</h2>
-        <p>I'm looking for backend or full-stack engineering roles in Australia. The fastest way to reach me is email.</p>
-        <div class="actions">
-          <a class="btn primary" href="mailto:yuhang.deng.ai@gmail.com">yuhang.deng.ai@gmail.com</a>
-          <button class="btn copy" type="button" id="copy-email">Copy email</button>
-          <a class="btn" href="https://www.linkedin.com/in/yuhang-deng-cs/" target="_blank" rel="noopener">LinkedIn</a>
+        <p class="eyebrow reveal">Skills</p>
+        <h2 class="reveal"><span class="hash">##</span> What I work with</h2>
+        <p class="sec-sub reveal">The stack I reach for day to day.</p>
+        <div class="grid3">
+          <div class="card focus reveal"><div class="ico"><svg class="i"><use href="#i-server"/></svg></div><h3>Backend APIs</h3><p>FastAPI, Spring Boot, Node.js — REST, auth, async workers.</p></div>
+          <div class="card focus reveal" style="--d:.06s"><div class="ico"><svg class="i"><use href="#i-layout"/></svg></div><h3>Web Frontend</h3><p>React, Next.js, TypeScript, Tailwind.</p></div>
+          <div class="card focus reveal" style="--d:.12s"><div class="ico"><svg class="i"><use href="#i-db"/></svg></div><h3>Data &amp; Caching</h3><p>PostgreSQL, MySQL, Redis, pgvector.</p></div>
+          <div class="card focus reveal"><div class="ico"><svg class="i"><use href="#i-cloud"/></svg></div><h3>Cloud &amp; IaC</h3><p>AWS (ECS, RDS, S3), Terraform, Docker, Kubernetes.</p></div>
+          <div class="card focus reveal" style="--d:.06s"><div class="ico"><svg class="i"><use href="#i-shield"/></svg></div><h3>Reliability</h3><p>Tests, CI/CD, k6 load tests, Prometheus &amp; Grafana.</p></div>
+          <div class="card focus reveal" style="--d:.12s"><div class="ico"><svg class="i"><use href="#i-spark"/></svg></div><h3>LLM Apps</h3><p>RAG, vector search, evaluating LLM output.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <p class="eyebrow reveal">Contact</p>
+        <h2 class="reveal">Let's talk.</h2>
+        <p class="sec-sub reveal">Looking for backend or full-stack roles in Australia. Email is the fastest way to reach me.</p>
+        <div class="reveal">
+          <a class="btn primary" href="mailto:yuhang.deng.ai@gmail.com"><svg class="i"><use href="#i-mail"/></svg>yuhang.deng.ai@gmail.com</a>
+          <div class="socials">
+            <a href="https://github.com/yuhang-deng-cs" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+            <a href="https://www.linkedin.com/in/yuhang-deng-cs/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
+            <button class="btn" type="button" id="copy-email" style="padding:0 16px;height:46px;border-radius:12px" aria-label="Copy email address"><svg class="i"><use href="#i-mail"/></svg><span>Copy email</span></button>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">© 2026 Jack Deng (邓宇航) · Hand-written HTML &amp; CSS, no framework · <a href="https://github.com/yuhang-deng-cs/yuhang-deng-cs.github.io" target="_blank" rel="noopener">Source</a></div>
-  </footer>
+  <footer>© 2026 Jack Deng (邓宇航) · Hand-written HTML &amp; CSS · <a href="https://github.com/yuhang-deng-cs/yuhang-deng-cs.github.io" target="_blank" rel="noopener">source</a></footer>
 
   <script>
     // Scroll reveal (content stays visible if IntersectionObserver is missing)
@@ -396,7 +387,7 @@
 
     // Reading progress bar + active nav link
     var bar = document.getElementById('progress');
-    var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav ul a[href^="#"]'));
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
     var ticking = false;
     function onScroll() {
       var max = document.documentElement.scrollHeight - innerHeight;
@@ -412,10 +403,11 @@
     addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
     onScroll();
 
+    // Copy email
     var copyBtn = document.getElementById('copy-email');
+    var copyLabel = copyBtn.querySelector('span');
     copyBtn.addEventListener('click', function () {
-      var btn = copyBtn;
-      var done = function (label) { btn.textContent = label; setTimeout(function () { btn.textContent = 'Copy email'; }, 2000); };
+      var done = function (label) { copyLabel.textContent = label; setTimeout(function () { copyLabel.textContent = 'Copy email'; }, 2000); };
       if (navigator.clipboard) {
         navigator.clipboard.writeText('yuhang.deng.ai@gmail.com').then(function () { done('Copied ✓'); }, function () { done('yuhang.deng.ai@gmail.com'); });
       } else {
