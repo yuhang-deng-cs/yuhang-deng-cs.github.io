@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jack Deng — Software Engineer</title>
-  <meta name="description" content="Jack Deng — backend & full-stack Software Engineer in Brisbane. 2 years at ByteDance, Master of CS (UQ). Full work rights in Australia.">
-  <meta name="author" content="Jack Deng">
+  <title>Yuhang Deng — Software Engineer</title>
+  <meta name="description" content="Yuhang Deng — backend & full-stack Software Engineer in Brisbane. 1 year at ByteDance, Master of CS (UQ). Full work rights in Australia.">
+  <meta name="author" content="Yuhang Deng">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Jack Deng — Software Engineer">
-  <meta property="og:description" content="Backend & full-stack engineer. 2 years at ByteDance, Master of CS (UQ). Brisbane, full work rights.">
+  <meta property="og:title" content="Yuhang Deng — Software Engineer">
+  <meta property="og:description" content="Backend & full-stack engineer. 1 year at ByteDance, Master of CS (UQ). Brisbane, full work rights.">
   <meta property="og:url" content="https://yuhang-deng-cs.github.io/">
   <meta property="og:image" content="https://yuhang-deng-cs.github.io/avatar.jpg">
   <link rel="canonical" href="https://yuhang-deng-cs.github.io/">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232563eb'/><text x='16' y='21.5' font-family='monospace' font-size='14' font-weight='700' fill='white' text-anchor='middle'>JD</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232563eb'/><text x='16' y='21.5' font-family='monospace' font-size='14' font-weight='700' fill='white' text-anchor='middle'>YD</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
@@ -22,8 +22,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Jack Deng",
-    "alternateName": "Yuhang Deng",
+    "name": "Yuhang Deng",
+    "alternateName": "邓宇航",
     "jobTitle": "Software Engineer",
     "url": "https://yuhang-deng-cs.github.io/",
     "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressRegion": "QLD", "addressCountry": "AU" },
@@ -48,24 +48,7 @@
       --ok-soft: #e8f7ee;
       --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      color-scheme: light dark;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b0f17;
-        --card: #121826;
-        --tile: #182033;
-        --text: #e6eaf2;
-        --muted: #a2acbd;
-        --faint: #64708a;
-        --line: #222b3d;
-        --accent: #6f9bff;
-        --accent-ink: #9bbaff;
-        --accent-soft: #17223a;
-        --ok: #4ade80;
-        --ok-soft: #13261c;
-        --on-accent: #0b0f17;
-      }
+      color-scheme: light;
     }
 
     * { box-sizing: border-box; }
@@ -137,12 +120,9 @@
 
     /* Experience */
     .xp { display: grid; gap: 18px; }
-    .xp .card { display: grid; grid-template-columns: 96px 1fr; gap: 26px; padding: 26px 28px; }
-    .logo { width: 96px; height: 96px; border-radius: 16px; background: var(--tile); border: 1px solid var(--line); display: grid; place-items: center; text-align: center; font: 800 15px/1.1 var(--mono); }
-    .logo small { display: block; font: 500 10px var(--sans); color: var(--muted); margin-top: 4px; letter-spacing: .04em; }
-    .logo.bd { color: #3c8cff; font-size: 13px; }
-    .logo.uq { color: #51247a; }
-    @media (prefers-color-scheme: dark) { .logo.uq { color: #b48ae0; } }
+    .xp .card { display: grid; grid-template-columns: 156px 1fr; gap: 26px; padding: 26px 28px; }
+    .logo { width: 156px; height: 88px; border-radius: 16px; background: var(--tile); border: 1px solid var(--line); display: grid; place-items: center; padding: 14px; }
+    .logo img { width: 100%; height: auto; max-height: 56px; object-fit: contain; }
     .xp-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; }
     .when { font: 500 13px var(--mono); color: var(--faint); }
     .role-sub { font-size: 14px; color: var(--muted); margin: 2px 0 12px; }
@@ -152,7 +132,7 @@
     .bul li { position: relative; padding-left: 20px; margin: 7px 0; }
     .bul li::before { content: "–"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
     .bul b { color: var(--text); font-weight: 600; }
-    @media (max-width: 600px) { .xp .card { grid-template-columns: 1fr; gap: 16px; padding: 22px; } .logo { width: 84px; height: 72px; } .logo.bd { font-size: 12px; } }
+    @media (max-width: 600px) { .xp .card { grid-template-columns: 1fr; gap: 16px; padding: 22px; } .logo { width: 140px; height: 72px; } }
 
     /* Projects */
     .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -232,7 +212,7 @@
 
   <nav aria-label="Main">
     <div class="wrap">
-      <a class="brand" href="#top"><b>~/</b>jack-deng</a>
+      <a class="brand" href="#top"><b>~/</b>yuhang-deng</a>
       <div class="nav-links">
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
@@ -248,19 +228,19 @@
       <div class="intro">
         <span class="pill"><span class="dot" aria-hidden="true"></span>Open to work · Full work rights in Australia</span>
         <h1>Software Engineer <span class="hl">backend &amp; full‑stack<span class="cursor" aria-hidden="true"></span></span></h1>
-        <p class="lead">I build <strong>reliable backend services</strong> and the web apps on top of them. Two years at <strong>ByteDance</strong>, Master of CS from <strong>UQ</strong>, now based in Brisbane.</p>
+        <p class="lead">I build <strong>reliable backend services</strong> and the web apps on top of them. A year at <strong>ByteDance</strong>, Master of CS from <strong>UQ</strong>, now based in Brisbane.</p>
         <div class="cta">
           <a class="btn primary" href="#projects">See my projects <span class="arrow">→</span></a>
           <a class="btn" href="#contact">Get in touch</a>
         </div>
         <div class="stats">
-          <div>2 yrs<span>at ByteDance</span></div>
+          <div>1 yr<span>at ByteDance</span></div>
           <div>100M+<span>DAU products</span></div>
           <div>−45%<span>API latency</span></div>
         </div>
       </div>
       <div class="photo">
-        <img src="avatar.jpg" alt="Jack Deng" width="682" height="1024">
+        <img src="avatar.jpg" alt="Yuhang Deng" width="682" height="1024">
         <div class="badge"><svg class="i"><use href="#i-pin"/></svg>Brisbane · open to relocate</div>
       </div>
     </header>
@@ -272,10 +252,10 @@
         <p class="sec-sub reveal">Production engineering at scale, then a master's in computer science.</p>
         <div class="xp">
           <article class="card reveal">
-            <div class="logo bd">ByteDance<small>Beijing</small></div>
+            <div class="logo"><img src="logos/bytedance.svg" alt="ByteDance" width="120" height="30"></div>
             <div>
-              <div class="xp-head"><h3>Full-Stack Software Engineer</h3><span class="when">2022 – 2024</span></div>
-              <p class="role-sub">ByteDance · Beijing, China</p>
+              <div class="xp-head"><h3>Full-Stack Software Engineer</h3><span class="when">Jul 2023 – Jun 2024</span></div>
+              <p class="role-sub">ByteDance</p>
               <ul class="chips"><li>Python · Node.js · Go</li><li>React · Next.js</li><li>AWS · Kubernetes</li></ul>
               <ul class="bul">
                 <li>Built backend services and data pipelines for products with <b>100M+ daily users</b>.</li>
@@ -285,10 +265,10 @@
             </div>
           </article>
           <article class="card reveal" style="--d:.08s">
-            <div class="logo uq">UQ<small>Brisbane</small></div>
+            <div class="logo"><img src="logos/uq.svg" alt="The University of Queensland" width="124" height="40"></div>
             <div>
-              <div class="xp-head"><h3>Master of Computer Science</h3><span class="when">2024 – 2026</span></div>
-              <p class="role-sub">The University of Queensland · Brisbane, Australia</p>
+              <div class="xp-head"><h3>Master of Computer Science</h3><span class="when">Jul 2024 – Jul 2026</span></div>
+              <p class="role-sub">The University of Queensland</p>
               <ul class="chips"><li>Databases</li><li>Cloud Computing</li><li>Machine Learning</li><li>Software Architecture</li></ul>
               <ul class="bul">
                 <li>Capstone: measured how RAG and validation make LLM trip plans <b>accurate and feasible</b>.</li>
@@ -369,7 +349,7 @@
     </section>
   </main>
 
-  <footer>© 2026 Jack Deng (邓宇航) · Hand-written HTML &amp; CSS · <a href="https://github.com/yuhang-deng-cs/yuhang-deng-cs.github.io" target="_blank" rel="noopener">source</a></footer>
+  <footer>© 2026 Yuhang Deng (邓宇航) · Hand-written HTML &amp; CSS · <a href="https://github.com/yuhang-deng-cs/yuhang-deng-cs.github.io" target="_blank" rel="noopener">source</a></footer>
 
   <script>
     // Scroll reveal (content stays visible if IntersectionObserver is missing)
